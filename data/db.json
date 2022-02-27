@@ -16,5 +16,23 @@
         "role":"ROLE_ADMIN",
         "score":0
         }
+    ],
+    "Questions":[
+        {
+        "libelle":"diop",
+        "prenom":"awa",
+        "login":"joueur@gmail.com",
+        "password":"joueur",
+        "role":"ROLE_JOUEUR",
+        "score":15
+        },
+        {
+        "libelle":"ba",
+        "prenom":"amy",
+        "login":"admin@gmail.com",
+        "password":"admin",
+        "role":"ROLE_ADMIN",
+        "score":0
+        }
     ]
 }
