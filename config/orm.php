@@ -9,15 +9,10 @@ function json_to_array(string $key){
 }
 $data = (json_to_array("Questions"));
 
-$donne = [
-    "nom" => "ba",
-    "prenom" => "kali"
-] ;
 //Enregistrement et mise a jour des donnees
-// function array_to_json(string $key, array $data){
-//      $array = json_encode($data);
-//     //  file_put_contents(PATH_DB);
-//      return $array[$key];
-// }
-// var_dump(array_to_json("users", $donne));
+function array_to_json(string $key, array $data){
+     $array = json_encode($data);
+     return $array[$key];
+}
+
 

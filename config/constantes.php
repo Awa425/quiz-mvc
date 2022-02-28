@@ -7,6 +7,8 @@ define("PATH_SRC", ROOT."src".DIRECTORY_SEPARATOR);
 
 define("PATH_DB",ROOT."data".DIRECTORY_SEPARATOR."db.json");
 
-define("PATH_VIEW",ROOT."template".DIRECTORY_SEPARATOR);
+define("PATH_VIEW",ROOT."templates".DIRECTORY_SEPARATOR);
 
 define("WEB_ROOT","localhost/quiz-mvc/public");
+
+// define("PATH_PUBLIC",ROOT."public".DIRECTORY_SEPARATOR."js". DIRECTORY_SEPARATOR."script.js");
