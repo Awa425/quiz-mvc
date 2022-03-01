@@ -8,7 +8,7 @@
 </head>
 <style>
     body {
-  background: #1c242d;
+  /* background: #1c242d; */
 }
 .box {
   border: 1px solid #c4c4c4;
@@ -32,7 +32,7 @@ h1.box-title {
 }
 .box-button {
   border-radius: 5px;
-  background: #d2483c;
+  background: green;
   text-align: center;
   cursor: pointer;
   font-size: 19px;
@@ -84,7 +84,7 @@ h1.box-title {
     <input type="password" class="box-input" name="password" placeholder="confirmer votre mot de passe"  />
     <!-- <input type="text" class="box-input" name="statut" placeholder="donner le statut"  /> -->
     <input type="submit" name="inscription" value="inscription" class="box-button" />
-    <p class="box-register">Déjà inscrit? <a href="login.html.php">Connectez-vous ici</a></p>
+   
 </form>
 </body>
 </html>

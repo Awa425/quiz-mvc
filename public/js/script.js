@@ -10,3 +10,4 @@ function CheckPassword(inputtxt)
         return false;
     }
 } 
+alert("ok");

@@ -1,5 +1,5 @@
 <?php 
-echo "<br> Nous somme dans le router";
+
 //role du routeur: se baser sur une information de la request et de charger un controller
 if (isset($_REQUEST['controller'])) {
    switch ($_REQUEST['controller']) {
@@ -11,7 +11,7 @@ if (isset($_REQUEST['controller'])) {
            break;   
        
          default:
-           echo "<br> controller existe mais l'action n'existe pas";
+         require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
            break;
    }
 }

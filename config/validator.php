@@ -2,7 +2,7 @@
 //test si le champs est rempli
 function champ_obligatoire(string $key,string $data,array &$errors,string $message="ce champ est obligatoire"){
     if(empty($data)){
-    $errors[$key]=$message;
+        $errors[$key]=$message;  
     }
 }
 
@@ -18,7 +18,8 @@ function valid_email(string $key,string $data,array &$errors,string $message="em
 function valid_password(string $key,string $data,array &$errors,string $message="password
     invalid"){
         if (CheckPassword($data)) {
-            #redirection vers sa page d'accueil
+            require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."register.html.php");    
+            
         }
         else {
             $errors[$key]=$message;
