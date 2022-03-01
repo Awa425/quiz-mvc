@@ -10,14 +10,14 @@ Controller = securite";
 if ($_SERVER["REQUEST_METHOD"]=="GET") { 
     if (isset($_REQUEST['action'])) {
         switch ($_REQUEST['action']) { 
-            case 'connexion':   var_dump($_REQUEST);
+            case 'connexion':   
                 echo "<br>charge la page de connexion car l'action = connexion";
                 //  header("location".PATH_VIEW."include/login.html.php");
-                require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."login.html.php");
+                require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
                 break;
             case 'inscription':
                     echo "<br>charge la page de inscription car l'action = forms-inscription";
-                require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."register.html.php");
+                require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."register.html.php");
 
                  break;
             
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         if ($action == 'connexion') {    
             $login = 'login';
             $password = 'password';
-            require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."user.html.php");
+            require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."user.html.php");
 
             // connexion($login, $password);
         }  
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $password = 'password';
             $role = "ROLE_JOUEUR"; 
             $score = 0; 
-            require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."register.html.php");
+            require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."register.html.php");
             
             // connexion($login, $password);
         }  
@@ -59,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
 # Validation des donnees
 function connexion(string $login, string $password):void{
-    echo "ok";
     champ_obligatoire("login", $login, $errors,"login obligatoire");
     if (count($errors)==0) {
         valid_email("login", $login, $errors);
@@ -67,19 +66,25 @@ function connexion(string $login, string $password):void{
     champ_obligatoire("password", $password, $errors, "password obligatoire");
     if (count($errors)==0) {
         #appel d'une fonction du model qui verifie esk le user existe
-        $exist = find_user_login_password($login, $password);
-
-        if (!$exist==[]) {
-            // header('location:user.html.php');
-            // require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."user.html.php");
+        $user = find_user_login_password($login, $password);
+        //user exist
+        if (count($user)!=0) { 
+            $_SESSION[KEY_USER_CONNECT]=$user;
+            header('location:'.WEB_ROOT."controller=user&action=accueil");
+            exit();
+            // require_once(PATH_VIEW.DIRECTORY_SEPARATOR."sucurite".DIRECTORY_SEPARATOR."user.html.php");
 
         }
-        // else {
-        //     header('location: login.html.php');
-        // }
+        else {
+            //L'utilisateur n'existe pas
+            $errors['connexion']="login ou mot de passe incorrect";
+            $_SESSION[KEY_ERRORS] = $errors;
+            header("location".WEB_ROOT );
+            exit();
+        }
     }
     else {
-        $_SESSION['errors'] = $errors;
+        $_SESSION[KEY_ERRORS] = $errors;
         header("location".WEB_ROOT );
         #mettre un exit() pour arreter la redirection 
         exit();

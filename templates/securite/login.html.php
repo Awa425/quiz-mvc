@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=WEB_ROOT.'css'.DIRECTORY_SEPARATOR.'style.connexion.css'?>">
     <title>Document</title>
 </head>
 <body>
-    <style>
+    <!-- <style>
         body {
   /* background: #1c242d; */
 }
@@ -83,7 +84,7 @@ p.errorMessage {
     padding: 5px 10px;
     color: #FFFFFF;
     border-radius: 3px;
-}
+} -->
 <?php 
     function vers(string $ctr, string $action){
        echo "<input type='hidden' name='controller' value='$ctr'>
@@ -102,7 +103,7 @@ p.errorMessage {
     <?php if (! empty($message)) { ?>
         <p class="errorMessage"><?php echo $message; ?></p>
     <?php } ?>
-    <p class="box-register">Déjà inscrit? <a href="login.html.php">Connectez-vous ici</a></p>
+    <p class="box-register">Pas de compte? <a href="./register.html.php">Inscrivez-vous ici</a></p>
 
 </form>
     </div>

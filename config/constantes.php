@@ -9,6 +9,12 @@ define("PATH_DB",ROOT."data".DIRECTORY_SEPARATOR."db.json");
 
 define("PATH_VIEW",ROOT."templates".DIRECTORY_SEPARATOR);
 
-define("WEB_ROOT","localhost/quiz-mvc/public");
+define("WEB_ROOT","http://localhost:8002/");
 
-// define("PATH_PUBLIC",ROOT."public".DIRECTORY_SEPARATOR."js". DIRECTORY_SEPARATOR."script.js");
+define("WEB_PUBLIC",str_replace("index.php","",$_SERVER['SCRIPT_FILENAME']));
+
+
+define("KEY_ERRORS","errors");
+
+//cles d'acces de l'utilisateur connecte
+define("KEY_USER_CONNECT","user-connect");

@@ -17,6 +17,6 @@ if (isset($_REQUEST['controller'])) {
 }
 else {
    //  require_once(PATH_VIEW.DIRECTORY_SEPARATOR."in".DIRECTORY_SEPARATOR."login.html.php");
-      require_once(PATH_VIEW.DIRECTORY_SEPARATOR."include".DIRECTORY_SEPARATOR."login.html.php");
+      require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
       
 }
