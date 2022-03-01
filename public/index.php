@@ -1,6 +1,5 @@
 
 <?php
-// echo "nous somme dans le front controller";
 //c'est ici que l'on va demarrer la session
 //D'abord on verifie si la session existe sinon on demarra
 if (session_status()==PHP_SESSION_NONE) {

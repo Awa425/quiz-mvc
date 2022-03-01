@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=PT+Sans);
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'PT Sans', Arial, Verdana;
+    background-color: rgb(0, 0, 24);
+  }
+  .main{
+    height: 100vh;
+  }
+  .main h1 {
+    text-align: center;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+  }
+
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 120px;
+    margin: auto;
+    position: relative;
+    background-color: none;
+    z-index: 7;
+  }
+  li {
+    float: left;
+    width: 25%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+    z-index: 9;
+  }
+
+
+a.active {
+  /* background-color: #e74c3c; */
+  pointer-events: none;
+}
+
+li.slider {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  left: 25%;
+  top: 0;
+  background-color: #e74c3c;
+  z-index: 8;
+  transition: left 
+  /* .4s, background-color .4s; */
+}
+.menu li:nth-child(1):hover,
+.menu li:nth-child(1):focus,
+.menu li:nth-child(1):active {
+    left: 0;
+    background-color: green;
+  }
+.menu li:nth-child(2):hover,
+.menu li:nth-child(2):focus,
+.menu li:nth-child(2):active {
+    left: 25%;
+    background-color: blue;
+    font-size: 2em;
+  
+}
+.menu li:nth-child(3):hover,
+.menu li:nth-child(3):focus,
+.menu li:nth-child(3):active {
+  
+    left: 50%;
+    background-color: #e67e22;
+  }
+  .menu li:nth-child(4):hover,
+.menu li:nth-child(4):focus,
+.menu li:nth-child(4):active {
+
+    left: 75%;
+    background-color: #16a085;
+  }
+
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+
+.main{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.table td, .table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.table thead th {
+    color: #ffffff;
+    background: #324960;
+}
+
+
+.table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .table {
+        display: block;
+        width: 100%;
+    }
+    .main:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .table thead, .table tbody, .table thead th {
+        display: block;
+    }
+    .table thead th:last-child{
+        border-bottom: none;
+    }
+    .table thead {
+        float: left;
+    }
+    .table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .table td, .table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .table tbody tr {
+        display: table-cell;
+    }
+    .table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .table tr:nth-child(even) {
+        background: transparent;
+    }
+    .table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+
+
+
+
+</style>
+<body>
+<div>
+        
+    
+    <div class="main">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Score</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data as $value) {?>
+                    <tr> 
+                        <td><?=$value['nom'];?></td>
+                        <td><?=$value['prenom'];?></td>
+                        <td><?=$value['score'];?></td> 
+                    </tr> 
+                    <?php
+                    }?>
+           
+            <tbody>
+        </table>
+    </div>
+    </div>    
+</body>
+</html>

@@ -4,24 +4,21 @@
   
   @import url(https://fonts.googleapis.com/css?family=PT+Sans);
   
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
-  body {
+  
+  /* body {
     font-family: 'PT Sans', Arial, Verdana;
     background-color: rgb(31, 68, 31);
-  }
-  .main{
+  } */
+  /* .main{
     height: 100vh;
-  }
-  .main h1 {
+  } */
+  /* .main h1 {
     text-align: center;
     font-size: 48px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: white;
-  }
+  } */
 
   .menu {
     list-style: none;
