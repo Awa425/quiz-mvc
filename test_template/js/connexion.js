@@ -4,28 +4,10 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 // const password2 = document.getElementById('password2');
 
-const btn = document.getElementById('btn');
-
-
-
-
-
 //Functions-------------------------------------------------------------
-function CheckPassword(input) 
-    { 
-     paswd = /^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*]{6,50}$/;
-    if(paswd.test(input.value))
-    { 
-        return true;
-    }
-    else
-    { 
-        return false;
-    }
-} 
 function showError(input, message) { //Afficher les messages d'erreur
     const formControl = input.parentElement;
-    // formControl.className = 'form-control error';
+    formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerText = message;
 }
@@ -39,9 +21,9 @@ function checkEmail(input) { //Tester si l'email est valide :  javascript : vali
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (re.test(input.value.trim().toLowerCase())) {
-        return true;
+        showSuccess(input);
     } else {
-        return false;
+        showError(input, `Email is not valid!`);
     }
 }
 //
@@ -80,41 +62,46 @@ function checkLength(input, min, max) { //Tester la longueur de la valeur  d'un 
 
 
 //Even listeners--------------------------------------------------------
-
-email.addEventListener('input', ()=>{
-    if (!checkEmail(email)) {
-        email.style.border= '2px solid red';
-    }
-    else{
-        email.style.border= '2px solid green';
-    }
-    password.addEventListener('input', ()=>{
-        if (!CheckPassword(password)) {
-           
-            password.style.border= '2px solid red';
-        }
-        else{
-            password.style.border= '2px solid green';
-            btn.removeAttribute('disabled');
-        }
-    });
-});
-
-
 form.addEventListener('submit', function(e) {
-   
+    e.preventDefault(); //Bloquer la soumission du formulaire
 
 
-    // checkRequired([email, password]);
-    // //
-    // // checkLength(username, 3, 15);
-    // checkLength(password, 6, 25);
-    // checkEmail(email);
+    checkRequired([email, password]);
+    //
+    // checkLength(username, 3, 15);
+    checkLength(password, 6, 25);
+    checkEmail(email);
     // checkPasswordMatch(password, password2);
-    // e.preventDefault(); //Bloquer la soumission du formulaire
 
 
+    /*
+    function isValidEmail(email) {//Tester si l'email est valide
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+    if (username.value === '') {
+       showError(username,'Username is required!'); 
+    }else{
+        showSuccess(username);
+    }
 
-   
-    
+    if (email.value === '') {
+       showError(email,'Email is required!'); 
+    }else if(!isValidEmail(email.value)){
+        showError(email,'Email is not valid!');
+    }else{
+        showSuccess(email);
+    }
+
+    if (password.value === '') {
+       showError(password,'password is required!'); 
+    }else{
+        showSuccess(password);
+    }
+
+    if (password2.value === '') {
+       showError(password2,'Password 2 is required!'); 
+    }else{
+        showSuccess(password2);
+    }*/
 });

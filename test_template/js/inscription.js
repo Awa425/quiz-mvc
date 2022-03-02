@@ -1,31 +1,13 @@
 const form = document.getElementById('form');
-// const username = document.getElementById('username');
+const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-// const password2 = document.getElementById('password2');
-
-const btn = document.getElementById('btn');
-
-
-
-
+const password2 = document.getElementById('password2');
 
 //Functions-------------------------------------------------------------
-function CheckPassword(input) 
-    { 
-     paswd = /^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*]{6,50}$/;
-    if(paswd.test(input.value))
-    { 
-        return true;
-    }
-    else
-    { 
-        return false;
-    }
-} 
 function showError(input, message) { //Afficher les messages d'erreur
     const formControl = input.parentElement;
-    // formControl.className = 'form-control error';
+    formControl.className = 'form-control error';
     const small = formControl.querySelector('small');
     small.innerText = message;
 }
@@ -39,9 +21,9 @@ function checkEmail(input) { //Tester si l'email est valide :  javascript : vali
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (re.test(input.value.trim().toLowerCase())) {
-        return true;
+        showSuccess(input);
     } else {
-        return false;
+        showError(input, `Email is not valid!`);
     }
 }
 //
@@ -69,52 +51,24 @@ function checkLength(input, min, max) { //Tester la longueur de la valeur  d'un 
     }
 }
 //
-// function checkPasswordMatch(input1, input2) {
-//     if (input1.value !== input2.value) {
-//         showError(input2, 'Passwords do not match!');
-//     }
-// }
+function checkPasswordMatch(input1, input2) {
+    if (input1.value !== input2.value) {
+        showError(input2, 'Passwords do not match!');
+    }
+}
 
 
 
 
 
 //Even listeners--------------------------------------------------------
-
-email.addEventListener('input', ()=>{
-    if (!checkEmail(email)) {
-        email.style.border= '2px solid red';
-    }
-    else{
-        email.style.border= '2px solid green';
-    }
-    password.addEventListener('input', ()=>{
-        if (!CheckPassword(password)) {
-           
-            password.style.border= '2px solid red';
-        }
-        else{
-            password.style.border= '2px solid green';
-            btn.removeAttribute('disabled');
-        }
-    });
-});
-
-
 form.addEventListener('submit', function(e) {
-   
+    e.preventDefault(); //Bloquer la soumission du formulaire
 
 
-    // checkRequired([email, password]);
-    // //
-    // // checkLength(username, 3, 15);
-    // checkLength(password, 6, 25);
-    // checkEmail(email);
-    // checkPasswordMatch(password, password2);
-    // e.preventDefault(); //Bloquer la soumission du formulaire
+    checkRequired([username, email, password, password2]);
+    checkLength(username, 3, 15);
+    checkLength(password, 6, 25);
+    checkEmail(email);
 
-
-
-   
-    
 });

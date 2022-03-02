@@ -54,17 +54,23 @@ body {
 }
 
 .form-control input:focus {
-    outline: none;
+    outline: O;
+    border-color: #777;
 }
 
 
 /* Le form-control qui a en meme temps la class success */
 
+.form-control.success input {
+    border-color: var(--success-color);
+}
 
 
 /* Le form-control qui a en meme temps la class error */
 
-
+.form-control.error input {
+    /* border-color: var(--error-color); */
+}
 
 .form-control small {
     /* color: var(--error-color); */
@@ -101,7 +107,6 @@ body {
     width: 480px;
     margin-left: -40px;
     margin-top: -30px;
-    justify-content: space-evenly;
 }
 
 .entete h5 {

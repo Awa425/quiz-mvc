@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
                 
             default:
                 // echo "<br> l'action existe mais ne correspond pas a l'action defini";
+                require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
                 break;
         }
     }
@@ -37,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $login = $_POST['login'];
             $password = $_POST['password'];   
             connexion($login, $password);
-            // require_once(PATH_VIEW.DIRECTORY_SEPARATOR."users".DIRECTORY_SEPARATOR."accueil.html.php"); 
 
         }  
         else if ($action == 'inscription') {  
@@ -47,10 +47,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $password = 'password';
             $role = "ROLE_JOUEUR"; 
             $score = 0; 
-            // require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."register.html.php");    
             connexion($login, $password);
         }  
-   
     else {
         require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
     }
@@ -64,6 +62,7 @@ function connexion(string $login, string $password):void{
     if (isset($errors['login'])) {  valid_email("login", $login, $errors);}
 
     champ_obligatoire("password", $password, $errors, "password obligatoire");
+
     if (count($errors)==0) {
         #appel d'une fonction du model qui verifie esk le user existe
         $user = find_user_login_password($login, $password);
@@ -76,7 +75,6 @@ function connexion(string $login, string $password):void{
             // require_once(PATH_VIEW.DIRECTORY_SEPARATOR."sucurite".DIRECTORY_SEPARATOR."user.html.php");   
         }
         else {
-            // die('ok');
             //L'utilisateur n'existe pas
             $errors['connexion']="login ou mot de passe incorrect";
             $_SESSION[KEY_ERRORS] = $errors;
@@ -100,3 +98,6 @@ function logout():void{
     header("location:".WEB_ROOT);
     exit();
     }
+
+    
+
