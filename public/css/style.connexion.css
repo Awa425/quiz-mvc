@@ -20,6 +20,17 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.header{
+    /* margin-top: -10%; */
+width: 100%;
+text-align: center;
+display: flex;
+/* margin-top: -13%; */
+background-color: #000000ed;
+color: white;
 }
 
 .container {
@@ -127,3 +138,18 @@ body {
 button a {
     text-decoration: none;
 }
+.inscrire{
+    color: #808080c7;
+text-decoration: none;
+font-size: 10px;
+}
+.main{
+    width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+margin: auto;
+}
+/* i{
+    background: url(../img/ic-login.png);
+} */
