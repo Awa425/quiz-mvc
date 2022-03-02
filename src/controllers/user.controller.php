@@ -29,9 +29,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 function lister_joueur() {
     //Appel du model
+    ob_start();
     $data = find_users(ROLE_JOUEUR);
-    // var_dump($data); die;
     require_once(PATH_VIEW."users/show.joueur.html.php");
+    //recupere le contenu de cette vue
+    $content_for_view=ob_get_clean();
+    require_once(PATH_VIEW."users/accueil.html.php");
+
 
     }
 
