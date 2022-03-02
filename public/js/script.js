@@ -99,22 +99,3 @@ email.addEventListener('input', ()=>{
         }
     });
 });
-
-
-form.addEventListener('submit', function(e) {
-   
-
-
-    // checkRequired([email, password]);
-    // //
-    // // checkLength(username, 3, 15);
-    // checkLength(password, 6, 25);
-    // checkEmail(email);
-    // checkPasswordMatch(password, password2);
-    // e.preventDefault(); //Bloquer la soumission du formulaire
-
-
-
-   
-    
-});

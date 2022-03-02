@@ -1,6 +1,6 @@
 <!-- Vue de connexion -->
 <?php 
-    // require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."header.inc.html.php");
+    require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."header.inc.html.php");
     if(isset($_SESSION[KEY_ERRORS])){
         $errors = $_SESSION[KEY_ERRORS];
         unset($_SESSION[KEY_ERRORS]);
@@ -11,19 +11,8 @@
         <input type='hidden' name='action' value='$action'>";
     }
 ?>  
+<?=$errors['login'];?> 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=WEB_ROOT."css".DIRECTORY_SEPARATOR."style.connexion.css"?>">
-    <title>Login</title>
-</head>
-
-<body>
     <div class="container">
         <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form">
             <div class="entete">
@@ -33,17 +22,19 @@
             <div class="form-control">
             <?php vers("securite", "connexion") ?> 
 
-                <small>Error Message</small>
+            <?php if(isset($errors['connexion'])){ ?>
+                <p style="color: red"> <?=$errors['connexion'];?> </p>
+            <?php } ?>   
             </div>
             
             <div class="form-control">
                 <input id="email" name="login" type="text" placeholder="Login"> <br>
-                <small>Error Message</small>
+                <small> </small>
             </div> 
             <div class="form-control">
                 <!-- <label for="password">Password</label> -->
                 <input id="password" name="password" type="password" placeholder="Password" > <br>
-                <small>Error Message</small>
+                <small></small>
             </div>
             <div class="footer">
                 <button type="submit" value="connexion" name="connexion" disabled  id="btn">Connexion</button>
@@ -52,8 +43,8 @@
 
         </form>
     </div>
-    <script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."script.js"?>"></script>
-</body>
+ 
+    <?php 
+    require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."footer.inc.html.php");
 
-
-</html>
+    ?>

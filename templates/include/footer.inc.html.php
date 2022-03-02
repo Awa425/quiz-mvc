@@ -1,4 +1,6 @@
 
-    <script src="<?=WEB_PUBLIC."js/script.js"?>"></script>
+    <script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."script.js"?>"></script>
 </body>
+
+
 </html>
