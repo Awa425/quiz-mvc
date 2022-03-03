@@ -115,7 +115,7 @@ flex-direction: column;
 } */
 .headnav{
     background-color: #39ddd6;
-    height: 15vh; 
+    height: 30%; 
     display: flex;
 justify-content: space-evenly;
 align-items: center;
@@ -126,6 +126,16 @@ width: 21%;
 height: 100%;
 border: 1ps solid;
 } */
+.headnav-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+border-radius: 50%;
+}
+.headnav-img img{
+    border-radius: 50%;
+}
 
 .bloc-info{
 
@@ -147,4 +157,5 @@ border-radius: 8px;
     background-color: #39ddd6;
     height: 39%;
 width: 10%;
+color: white;
 }

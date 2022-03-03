@@ -1,3 +1,4 @@
+//Declaration du cote page connexion
 const form = document.getElementById('form');
 // const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -9,7 +10,7 @@ const btn = document.getElementById('btn');
 const li = document.querySelectorAll('.li');
 const a = document.querySelectorAll('.a');
 
-
+//Declaration du cote page inscription
 
 
 
@@ -21,10 +22,7 @@ function CheckPassword(input)
     { 
         return true;
     }
-    else
-    { 
-        return false;
-    }
+   
 } 
 function showError(input, message) { //Afficher les messages d'erreur
     const formControl = input.parentElement;

@@ -1,90 +1,80 @@
+<?php 
+require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."header.inc.html.php");
+if(isset($_SESSION[KEY_ERRORS])){
+    $errors = $_SESSION[KEY_ERRORS];
+    unset($_SESSION[KEY_ERRORS]);
+}    
+
+    function vers(string $ctr, string $action){
+        echo "<input type='hidden' name='controller' value='$ctr'>
+         <input type='hidden' name='action' value='$action'>";
+     }
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="<?=WEB_ROOT."css".DIRECTORY_SEPARATOR."style.inscription.css"?>">
+    <title>Inscription</title>
 </head>
-<style>
-    body {
-  /* background: #1c242d; */
-}
-.box {
-  border: 1px solid #c4c4c4;
-  padding: 30px 25px 10px 25px;
-  background: white;
-  margin: 30px auto;
-  width: 360px;
-}
-h1.box-logo a {
-  text-decoration:none;
-}
-h1.box-title {
-  color: #AEAEAE;
-  background: #f8f8f8;
-  font-weight: 300;
-  padding: 15px 25px;
-  line-height: 30px;
-  font-size: 25px;
-  text-align:center;
-  margin: -27px -26px 26px;
-}
-.box-button {
-  border-radius: 5px;
-  background: green;
-  text-align: center;
-  cursor: pointer;
-  font-size: 19px;
-  width: 100%;
-  height: 51px;
-  padding: 0;
-  color: #fff;
-  border: 0;
-  outline:0;
-}
-.box-register
-{
-  text-align:center;
-  margin-bottom:0px;
-}
-.box-register a
-{
-  text-decoration:none;
-  font-size:12px;
-  color:#666;
-}
-.box-input {
-  font-size: 14px;
-  background: #fff;
-  border: 1px solid #ddd;
-  margin-bottom: 25px;
-  padding-left:10px;
-  border-radius: 5px;
-  width: 347px;
-  height: 50px;
-}
 
-</style>
-<?php 
-    function vers(string $ctr, string $action){
-       echo "<input type='hidden' name='controller' value='$ctr'>
-        <input type='hidden' name='action' value='$action'>";
-    }
-?>
 <body>
-<form class="box" action="" method="post">
-	<h3 class="box-logo box-title" style="text-align: center;">JEUX-QUIZ</h3>
-    <h1 class="box-title">S'inscrire</h1>
-    <?php vers("securite", "inscription") ?> 
-    <input type="text" class="box-input" name="nom" placeholder="Entrer votre nom"  />
-    <input type="text" class="box-input" name="prenom" placeholder="Entrer votre prenom"  />
-	<input type="text" class="box-input" name="login" placeholder="Votre Login"  />
-    <input type="text" class="box-input" name="password" placeholder="votre mot de passe"  />
-    <input type="password" class="box-input" name="password" placeholder="confirmer votre mot de passe"  />
-    <!-- <input type="text" class="box-input" name="statut" placeholder="donner le statut"  /> -->
-    <input type="submit" name="inscription" value="inscription" class="box-button" />
-   
-</form>
+    <div class="header">
+        <i><img src="img/logo-QuizzSA.png"></i>
+        <h4 style="width: 94%;">Le plaisir de jouer</h4>
+    </div>
+    <div class="main">
+        <div class="container">
+            <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form">
+                <h5>S'inscrire</h5>
+                <small class="gray">Pour tester votre niveau de culture generale</small>
+                <?php vers("securite", "inscription") ?> 
+                <div class="form-control">
+                    <!-- <label for="username">Prenom</label> -->
+                    <input id="username" name="prenom" type="text" placeholder="Entrer votre prenom">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <!-- <label for="username">Nom</label> -->
+                    <input id="username" name="nom" type="text" placeholder="Entrer votre nom">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <!-- <label for="email">Login</label> -->
+                    <input id="email" name="login" type="text" placeholder="Entrer votre login">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <!-- <label for="password">Password</label> -->
+                    <input id="password" name="password" type="password" placeholder="Entrer votre password">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <!-- <label for="password2">Confirme password</label> -->
+                    <input id="password2" name="password2" type="password" placeholder="Confirmer votre password">
+                    <small>Error Message</small>
+                </div>
+                <div class="element">
+                    <small>Avatar</small>
+                    <a href="#">Choisir un fichier</a>
+                </div>
+                <input type="submit" class="button"  name="inscription" value="inscription">
+                <!-- <button>submit</button> -->
+            </form>
+            <div class="avatar">
+                <div class="image">
+                    <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."user.png"?>" alt=""> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
 </body>
+
+
 </html>

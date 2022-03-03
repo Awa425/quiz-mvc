@@ -20,9 +20,12 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 }
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
-    if(isset($_REQUEST['action'])){
+    if(isset($_REQUEST['action'])){   
         if ($_REQUEST['action']=="connexion") {  
             require_once(PATH_VIEW."securite/register.html.php");
+        }
+        elseif ($_REQUEST['action']=="inscription") {  
+            
         }
     }
 }

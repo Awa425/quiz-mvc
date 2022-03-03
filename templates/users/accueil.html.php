@@ -24,14 +24,15 @@
             <h3>CRÉER ET PARAMÉTRER VOS QUIZZ</h3>
             <a href="<?=WEB_ROOT."?controller=securite&action=deconnexion"?>" class="deconnexion">Déconnexion</a>
         </div>
+        <?php if (is_joueur()) {?> <h1>BIENVENUE</h1> <?php } ?>
+        <?php if (is_admin()) {?>
         <div class="corps">
             <div class="navbar">
                 <div class="headnav">
-                    <img src="/public/img/khf.jpg" alt="" width="50px" height="50px">
-                    <div>prenom</div>
+                    <div class="headnav-img"><img src="/public/img/khf.jpg" alt="" width="50px" height="50px"></div>
+                    <div><?= $_SESSION[KEY_USER_CONNECT]['prenom']." ".$_SESSION[KEY_USER_CONNECT]['nom']; ?></div>
                 </div>
-                <div class="corpsnav">
-                    <?php if (is_admin()) {?>
+                <div class="corpsnav">  
                     <ul>
                         <li class="li">
                             <span> <a class="a" href="">Liste des Questions</a></span>
@@ -49,7 +50,7 @@
                         <span><a href="#" class="a">Créer Questions</a></span>
                             <img src="img/ic-ajout.png" alt="">
                         </li>
-                        <?php } ?>
+                       
                     </ul>
                 </div>
             </div>
@@ -57,8 +58,9 @@
                 <?php echo  $content_for_view; ?>
             </div>            
         </div>
-       <div class="suivant"> <input type="submit" ></div>
+       <div class="suivant"> <input type="submit" value="suivant"></div>
    </div>
+   <?php } ?>
    </body>
 
 
