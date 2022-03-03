@@ -25,7 +25,7 @@
 
 <body>
     <div class="header">
-        <i><img src="<?=PATH_VIEW."img".DIRECTORY_SEPARATOR."logo-QuizzSA.png"?>" alt=""></i>
+        <i><img src="img/logo-QuizzSA.png"></i>
         <h4 style="width: 94%;">Le plaisir de jouer</h4>
     </div>
     <div class="main">
@@ -44,17 +44,17 @@
                 </div>
                 
                 <div class="form-control">
-                <div>
+                <div class="log"  id="log">
                         <input id="email" name="login" type="text" placeholder="Login">
-                        <span></span>
+                        <img src="img/ic-login.png" alt="">
                 </div> <br>
                     <small> </small>
                 </div> 
                 <div class="form-control">
                     <!-- <label for="password">Password</label> -->
-                    <div>
+                    <div class="log"  id="pass">
                         <input id="password" name="password" type="password" placeholder="Password" >
-                        <span></span>
+                        <img src="img/ic-password.png" alt="">
                     </div> <br>
                     <small></small>
                 </div>

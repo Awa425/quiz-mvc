@@ -31,6 +31,8 @@ display: flex;
 /* margin-top: -13%; */
 background-color: #000000ed;
 color: white;
+max-height: 10vh;
+
 }
 
 .container {
@@ -51,23 +53,34 @@ color: white;
 }
 
 .form-control label {
-    color: #777;
+    /* color: #777; */
     display: block;
     margin-bottom: 5px;
 }
 
 .form-control input {
-    border: 2px solid #f0f0f0;
-    border-radius: 4px;
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 10px;
     font-size: 14px;
+    border: none;
 }
-
-.form-control input:focus {
+.form-control input:focus{
     outline: none;
 }
+.form-control .log{
+    display: flex;
+justify-content: center;
+align-items: center;
+justify-content: space-evenly;
+border: 2px solid #80808033;
+}
+/* .form-control .log{
+    width: 7%;
+height: 2%;
+} */
+
+
 
 
 /* Le form-control qui a en meme temps la class success */
@@ -153,3 +166,11 @@ margin: auto;
 /* i{
     background: url(../img/ic-login.png);
 } */
+i img{
+    height: 100%;
+}
+i{
+    display: flex;
+    justify-content: flex-start;
+    width: 4%;
+}

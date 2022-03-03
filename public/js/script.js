@@ -3,8 +3,11 @@ const form = document.getElementById('form');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 // const password2 = document.getElementById('password2');
-
+const log = document.getElementById('log');
+const pass = document.getElementById('pass');
 const btn = document.getElementById('btn');
+const li = document.querySelectorAll('.li');
+const a = document.querySelectorAll('.a');
 
 
 
@@ -83,19 +86,23 @@ function checkLength(input, min, max) { //Tester la longueur de la valeur  d'un 
 
 email.addEventListener('input', ()=>{
     if (!checkEmail(email)) {
-        email.style.border= '2px solid red';
+        log.style.border= '2px solid red';
     }
     else{
-        email.style.border= '2px solid green';
+        log.style.border= '2px solid green';
     }
     password.addEventListener('input', ()=>{
         if (!CheckPassword(password)) {
            
-            password.style.border= '2px solid red';
+            pass.style.border= '2px solid red';
         }
         else{
-            password.style.border= '2px solid green';
+            pass.style.border= '2px solid green';
             btn.removeAttribute('disabled');
         }
     });
 });
+
+a.addEventListener('click', ()=>{
+    a.style.color='red';
+})

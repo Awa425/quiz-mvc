@@ -5,6 +5,8 @@ body{
 justify-content: center;
 height: 100vh;
 align-content: center;
+flex-direction: column;
+margin: 0;
 }
 .container{
     display: flex;
@@ -14,6 +16,22 @@ align-content: center;
     margin: 2% 6% 2% 6%;
     box-shadow: 5px 5px 5px 5px rgba(8, 4, 8, 0.2);
     width: 90%;
+}
+.header{
+    /* margin-top: -10%; */
+width: 100%;
+text-align: center;
+display: flex;
+/* margin-top: -13%; */
+background-color: #000000ed;
+color: white;
+}
+.header i{
+    display: flex;
+width: 4%;
+}
+.header img{
+    width: 100%;
 }
 
 /* p{
@@ -44,10 +62,11 @@ li a{
     color: grey;
 }
 .head{
-    background-color: #51bfd0;
+    background-color: #39ddd6;
     display: flex;
     justify-content: space-between;
     height: 10vh;
+    max-height: 10vh;
 }
 .head h3{
     width: 85%;
@@ -56,7 +75,7 @@ text-align: center;
 color: white;
 }
 .deconnexion{
-    background-color: #39ddd6;
+    background-color: #03817b;
     margin: 2%;
     text-decoration: none;
     color: white;
@@ -78,7 +97,8 @@ h2{
     justify-content: space-evenly;
 }
 .navbar{
-    border: 2px solid ;
+    box-shadow: 1px 1px 1px 1px rgba(8, 4, 8, 0.2);
+    
     width: 33%;
     height: 67%;
     margin: 5% 2% 5% 2%;
@@ -89,19 +109,42 @@ flex-direction: column;
     display: flex;
     height: 100%;
 }
+/* .main-corpsnav{
+    border: 2px solid;
+    height: 100%;
+} */
 .headnav{
-    background-color: #51bfd0;
+    background-color: #39ddd6;
     height: 15vh; 
     display: flex;
 justify-content: space-evenly;
+align-items: center;
 }
+/* .headnav-img {
+    border-radius: 34px;
+width: 21%;
+height: 100%;
+border: 1ps solid;
+} */
 
 .bloc-info{
 
     width: 53%;
-height: 94%;
+height: 87%;
 margin-top: 1%;
 margin-right: 10%;
-border: 1.6px solid #51bfd0;
+border: 1.6px solid #39ddd6;
 border-radius: 8px;
+}
+
+.suivant{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    height: 26%;
+}
+.suivant input{
+    background-color: #39ddd6;
+    height: 39%;
+width: 10%;
 }

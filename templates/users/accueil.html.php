@@ -15,7 +15,10 @@
 </head>
 
 <body>
-
+    <div class="header">
+        <i><img src="img/logo-QuizzSA.png"></i>
+        <h4 style="width: 94%;">Le plaisir de jouer</h4>
+    </div>
    <div class="container">
         <div class="head">
             <h3>CRÉER ET PARAMÉTRER VOS QUIZZ</h3>
@@ -25,26 +28,26 @@
             <div class="navbar">
                 <div class="headnav">
                     <img src="/public/img/khf.jpg" alt="" width="50px" height="50px">
-                    <div>prenom nom</div>
+                    <div>prenom</div>
                 </div>
                 <div class="corpsnav">
                     <?php if (is_admin()) {?>
                     <ul>
-                        <li>
-                            <span> <a href="">Liste des Questions</a></span>
-                            <img src="img/Icones/ic-liste.png" alt="">
+                        <li class="li">
+                            <span> <a class="a" href="">Liste des Questions</a></span>
+                            <img src="img/ic-liste.png" alt="">
                         </li>
-                        <li>
-                        <span><a href="#">Créer Admin</a></span>
-                            <img src="img/Icones/ic-ajout.png" alt="">
+                        <li class="li">
+                        <span><a class="a" href="#">Créer Admin</a></span>
+                            <img src="img/ic-ajout.png" alt="">
                         </li>
-                        <li>
-                        <span><a href="<?=WEB_ROOT."?controller=user&action=liste"?>">Liste des joueurs</a></span>
-                            <img src="img/Icones/ic-liste.png" alt="">
+                        <li class="li">
+                        <span><a class="a" href="<?=WEB_ROOT."?controller=user&action=liste"?>">Liste des joueurs</a></span>
+                            <img src="img/ic-liste.png" alt="">
                         </li>
-                        <li>
-                        <span><a href="#">Créer Questions</a></span>
-                            <img src="img/Icones/ic-ajout.png" alt="">
+                        <li class="li">
+                        <span><a href="#" class="a">Créer Questions</a></span>
+                            <img src="img/ic-ajout.png" alt="">
                         </li>
                         <?php } ?>
                     </ul>
@@ -52,8 +55,9 @@
             </div>
             <div class="bloc-info">
                 <?php echo  $content_for_view; ?>
-            </div>
+            </div>            
         </div>
+       <div class="suivant"> <input type="submit" ></div>
    </div>
    </body>
 

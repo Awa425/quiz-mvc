@@ -6,8 +6,24 @@
         "login":"joueur@gmail.com",
         "password":"joueur123",
         "role":"ROLE_JOUEUR",
-        "score":15
+        "score":10
         },
+        {
+        "nom":"Ba",
+        "prenom":"Demba",
+        "login":"joueur@gmail.com",
+        "password":"joueur123",
+        "role":"ROLE_JOUEUR",
+        "score":19
+        },
+        {
+        "nom":"Ndiaye",
+        "prenom":"Saliou",
+        "login":"joueur@gmail.com",
+        "password":"joueur123",
+        "role":"ROLE_JOUEUR",
+        "score":17
+        },    
         {
         "nom":"ba",
         "prenom":"amy",
