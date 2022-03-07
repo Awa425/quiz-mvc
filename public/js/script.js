@@ -1,4 +1,4 @@
-//Declaration du cote page connexion
+///////////////////Declaration du cote page connexion///////////////////////////////
 const form = document.getElementById('form');
 // const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -7,10 +7,6 @@ const password = document.getElementById('password');
 const log = document.getElementById('log');
 const pass = document.getElementById('pass');
 const btn = document.getElementById('btn');
-const li = document.querySelectorAll('.li');
-const a = document.querySelectorAll('.a');
-
-//Declaration du cote page inscription
 
 
 
@@ -81,7 +77,7 @@ function checkLength(input, min, max) { //Tester la longueur de la valeur  d'un 
 
 
 //Even listeners--------------------------------------------------------
-
+////////////Cote page connexion/////////////////////////
 email.addEventListener('input', ()=>{
     if (!checkEmail(email)) {
         log.style.border= '2px solid red';
@@ -104,3 +100,4 @@ email.addEventListener('input', ()=>{
 a.addEventListener('click', ()=>{
     a.style.color='red';
 })
+

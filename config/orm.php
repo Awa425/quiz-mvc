@@ -7,7 +7,7 @@ function json_to_array(string $key){
     $array = json_decode($json, true);
     return $array[$key];
 }
-// $data = (json_to_array("Questions"));
+
 
 //Enregistrement et mise a jour des donnees
 function array_to_json(string $key, array $data){

@@ -20,10 +20,10 @@ function find_users(string $role):array{
     $result;
     }
    
-function est_existe(string $login, string $password) {
+function est_existe(string $login) {
     $users=json_to_array("users");
     foreach ($users as $user) {
-        if( $user['login']==$login && $user['password']==$password){
+        if( $user['login']==$login ){
         return true;
             }
         }        

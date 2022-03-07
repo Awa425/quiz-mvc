@@ -1,19 +1,17 @@
-<?php  
-if(isset($_SESSION[KEY_ERRORS])){
-    $errors = $_SESSION[KEY_ERRORS];  
-    unset($_SESSION[KEY_ERRORS]);
-}    
-
-    function vers(string $ctr, string $action){
-        echo "<input type='hidden' name='controller' value='$ctr'>
-         <input type='hidden' name='action' value='$action'>";
-     }
-
-     if(!is_connect()){require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."head.inc.html.php");}
-     require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."header.inc.html.php");
-
-?>
-    <div class="main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=WEB_ROOT."css".DIRECTORY_SEPARATOR."style.form.css"?>">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- <div class="main"> -->
         <div class="container">
             <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form">
                 <h5>S'inscrire</h5>
@@ -60,14 +58,9 @@ if(isset($_SESSION[KEY_ERRORS])){
             </form>
             <div class="avatar">
                 <div class="image">
-                    <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."v3_0591291.jpg"?>" alt=""> 
+                    <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR.""?>" alt=""> 
                 </div>
 
             </div>
         </div>
-    </div>
-    
-    <script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
-<?php 
-     require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."footer.inc.html.php");
-     ?>
+    <!-- </div> -->

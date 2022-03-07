@@ -1,6 +1,5 @@
 <!-- Vue de connexion -->
 <?php 
-    require_once(PATH_VIEW."include".DIRECTORY_SEPARATOR."header.inc.html.php");
     if(isset($_SESSION[KEY_ERRORS])){
         $errors = $_SESSION[KEY_ERRORS];
         unset($_SESSION[KEY_ERRORS]);
@@ -9,8 +8,8 @@
     function vers(string $ctr, string $action){
        echo "<input type='hidden' name='controller' value='$ctr'>
         <input type='hidden' name='action' value='$action'>";
-    }
-?>  
+    }   
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,19 +22,21 @@
     <title>Login</title>
 </head>
 
-<body>
-    <div class="header">
-        <i><img src="img/logo-QuizzSA.png"></i>
+<body class="body" >
+    
+    <div class="header-con">
+        <i class="icon-con"><img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."logo-QuizzSA.png"?>"></i>
         <h4 style="width: 94%;">Le plaisir de jouer</h4>
     </div>
-    <div class="main">
-        <div class="container">
-            <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form">
-                <div class="entete">
+  
+    <div class="main-con">
+        <div class="container-con">
+            <form action="<?=WEB_ROOT?>" method="POST" class="form-con" id="form">
+                <div class="entete-con">
                     <h5>Login form</h5>
                     <p> <a href="#">X</a> </p>
                 </div>
-                <div class="form-control">
+                <div class="form-control-con">
                 <?php vers("securite", "connexion") ?> 
 
                 <?php if(isset($errors['connexion'])){ ?>
@@ -43,14 +44,14 @@
                 <?php } ?>   
                 </div>
                 
-                <div class="form-control">
+                <div class="form-control-con">
                 <div class="log"  id="log">
                         <input id="email" name="login" type="text" placeholder="Login">
                         <img src="img/ic-login.png" alt="">
                 </div> <br>
                     <small> </small>
                 </div> 
-                <div class="form-control">
+                <div class="form-control-con">
                     <!-- <label for="password">Password</label> -->
                     <div class="log"  id="pass">
                         <input id="password" name="password" type="password" placeholder="Password" >
@@ -58,15 +59,15 @@
                     </div> <br>
                     <small></small>
                 </div>
-                <div class="footer">
+                <div class="footer-con">
                     <button type="submit" value="connexion" name="connexion" disabled  id="btn">Connexion</button>
-                    <a href="<?= WEB_ROOT."?controller=securite&action=inscription" ?>" class="inscrire">S'inscrire pour jouer?</a>
+                    <a href="<?= WEB_ROOT."?controller=securite&action=inscription" ?>" class="inscrire-con">S'inscrire pour jouer?</a>
                 </div>
 
             </form>
         </div>
     </div>
-   
+
  
     
     <script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."script.js"?>"></script>

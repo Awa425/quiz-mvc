@@ -2,7 +2,7 @@
   
   @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
-  .main h1 {
+  /* .main-liste h1 {
     text-align: center;
     font-size: 48px;
     text-transform: uppercase;
@@ -20,26 +20,25 @@
     position: relative;
     background-color: none;
     z-index: 7;
-  }
+  } */
  
 
-h2{
+/* h2{
     text-align: center;
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
     padding: 30px 0;
-}
+} */
 
 
-.main{
-    margin: 10px 70px 70px;
-    /* box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 ); */
+.main-liste{
     height: 100%;
+    width: 100%;
 }
 
-.table {
+.table-liste {
     border-radius: 5px;
     font-size: 12px;
     font-weight: normal;
@@ -51,28 +50,28 @@ h2{
     background-color: white;
 }
 
-.table td, .table th {
+.table-liste td, .table-liste th {
     text-align: start;
-    padding: 8px;
+    padding: 2px;
 }
 
-.table td {
+.table-liste td {
     border-right: 1px solid #f8f8f8;
     font-size: 12px;
 }
 
-.table thead th {
+.table-liste thead th {
     color: black;
 }
 
-.table tr:nth-child(even) {
+.table-liste tr:nth-child(even) {
     background: #F8F8F8;
 }
 
 /* Responsive */
 
 @media (max-width: 767px) {
-    .table {
+    .table-liste {
         display: block;
         width: 100%;
     }
@@ -84,21 +83,21 @@ h2{
         color: white;
         padding: 0 0 10px;
     }
-    .table thead, .table tbody, .table thead th {
+    .table-liste thead, .table-liste tbody, .table-liste thead th {
         display: block;
     }
-    .table thead th:last-child{
+    .table-liste thead th:last-child{
         border-bottom: none;
     }
-    .table thead {
+    .table-liste thead {
         float: left;
     }
-    .table tbody {
+    .table-liste tbody {
         width: auto;
         position: relative;
         overflow-x: auto;
     }
-    .table td, .table th {
+    .table-liste td, .table-liste th {
         padding: 20px .625em .625em .625em;
         height: 60px;
         vertical-align: middle;
@@ -109,27 +108,27 @@ h2{
         font-size: 13px;
         text-overflow: ellipsis;
     }
-    .table thead th {
+    .table-liste thead th {
         text-align: left;
         border-bottom: 1px solid #f7f7f9;
     }
-    .table tbody tr {
+    .table-liste tbody tr {
         display: table-cell;
     }
-    .table tbody tr:nth-child(odd) {
+    .table-liste tbody tr:nth-child(odd) {
         background: none;
     }
-    .table tr:nth-child(even) {
+    .table-liste tr:nth-child(even) {
         background: transparent;
     }
-    .table tr td:nth-child(odd) {
+    .table-liste tr td:nth-child(odd) {
         background: #F8F8F8;
         border-right: 1px solid #E6E4E4;
     }
-    .table tr td:nth-child(even) {
+    .table-liste tr td:nth-child(even) {
         border-right: 1px solid #E6E4E4;
     }
-    .table tbody td {
+    .table-liste tbody td {
         display: block;
         text-align: center;
     }

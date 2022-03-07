@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<div>
-    <div class="main">
-        <table class="table">
+
+    <div class="main-liste">
+        <table class="table-liste">
             <thead>
             <tr>
                 <th>Nom</th>
@@ -32,6 +32,6 @@
             <tbody>
         </table>
     </div>
-    </div>    
+     
 </body>
 </html>

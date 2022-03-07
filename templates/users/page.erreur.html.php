@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=WEB_ROOT."css".DIRECTORY_SEPARATOR."style.inscription.css"?>">
-    <title>Inscription</title>
+    <title>Document</title>
 </head>
-
 <body>
-   
+    <h1>PAGE NOT FOUND</h1>
+    <H1>404</H1>
+</body>
+</html>
