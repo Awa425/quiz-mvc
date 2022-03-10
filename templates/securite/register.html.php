@@ -1,9 +1,10 @@
 <?php  
+
 if(isset($_SESSION[KEY_ERRORS])){
     $errors = $_SESSION[KEY_ERRORS];  
     unset($_SESSION[KEY_ERRORS]);
 }    
-
+//  if(isset($_SESSION[KEY_USER_CONNECT])){var_dump($_SESSION[KEY_USER_CONNECT]['avatar']); die;}
     function vers(string $ctr, string $action){
         echo "<input type='hidden' name='controller' value='$ctr'>
          <input type='hidden' name='action' value='$action'>";
@@ -15,7 +16,7 @@ if(isset($_SESSION[KEY_ERRORS])){
 ?>
     <div class="main">
         <div class="container">
-            <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form">
+            <form action="<?=WEB_ROOT?>" method="POST" class="form" id="form" enctype="multipart/form-data">
                 <h5>S'inscrire</h5>
                 <small class="gray">Pour tester votre niveau de culture generale</small>
                 <?php vers("securite", "inscription") ?> 
@@ -54,15 +55,22 @@ if(isset($_SESSION[KEY_ERRORS])){
                 </div>
                 <div class="element">
                     <small>Avatar</small>
-                    <a href="#">Choisir un fichier</a>
+                    <input type="file" id="avatar" name="file">Choisir un fichier</input>
                 </div>
                 <input type="submit" class="button" id="ins_submit" name="inscription" value="inscription" disabled>
             </form>
-            <div class="avatar">
-                <div class="image">
-                    <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."v3_0591291.jpg"?>" alt=""> 
-                </div>
-
+            <div class="avatar"> 
+                    <label for="avatar" class="image">
+                       <?php  if(isset($_SESSION[KEY_USER_CONNECT]['avatar'])){ ?>
+                            <img src="<?=PATH_UPLOADS. $_SESSION[KEY_USER_CONNECT]['avatar'];?>" alt=""> 
+                      <?php } 
+                      else {?>
+                        <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."v3_0591291.jpg"?>" alt="">
+                      <?php }?>
+                    </label>  
+                      <?php if(isset($errors['fichier'])){?>
+                            <p><?= $errors['fichier'];?></p>
+                     <?php }?>  
             </div>
         </div>
     </div>

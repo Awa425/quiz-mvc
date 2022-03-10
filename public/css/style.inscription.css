@@ -150,6 +150,7 @@ h5 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    visibility: hidden;
 }
 
 .element a {
@@ -171,7 +172,7 @@ h5 {
 
 .avatar {
     display: flex;
-    width: 16vw;
+    width: 18vw;
     height: 26vh;
     align-items: center;
     justify-content: center;

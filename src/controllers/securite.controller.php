@@ -22,17 +22,21 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
                 
             default:
                 // echo "<br> l'action existe mais ne correspond pas a l'action defini";
-                require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
-                break;
+                // require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."page.erreur.html.php");
+                // break;
         }
     }
-    else {
-        require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."page.erreur.html.php");
-    }
+    // else {
+    //     require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."page.erreur.html.php");
+    // }
 }
+// else {
+//     require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."page.erreur.html.php");
+// }
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {  
-    extract($_POST);  //permet de recuperer les names
+
+        extract($_POST);  //permet de recuperer les names
         if ($action == 'connexion') {    
             $login = $_POST['login'];
             $password = $_POST['password'];   
@@ -46,13 +50,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $password = $_POST['password'];
             $password2 = $_POST['password2'];
             $role = "ROLE_JOUEUR"; 
-            $score = 0;  
-            inscription($nom, $prenom, $login, $password, $password2);
+            $score = 0; 
+
+                $file_name = $_FILES['file']['name'];
+                $file_size =$_FILES['file']['size'];
+                $file_tmp =$_FILES['file']['tmp_name'];
+                $file_type=$_FILES['file']['type'];
+                $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+                
+                
+            inscription($nom, $prenom, $login, $password, $password2, $file_name, $file_size, $file_tmp, $file_type, $file_ext);
         }  
-    else {
-        require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
-    }
+        else {
+            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
+        }
 }
+
 
 # Validation des donnees
 function connexion(string $login, string $password):void{  
@@ -62,6 +75,7 @@ function connexion(string $login, string $password):void{
     if (isset($errors['login'])) {  valid_email("login", $login, $errors);}
 
     champ_obligatoire("password", $password, $errors, "password obligatoire");
+    
 
     if (count($errors)==0) {
         #appel d'une fonction du model qui verifie esk le user existe
@@ -89,10 +103,10 @@ function connexion(string $login, string $password):void{
     }
 }
 
-function inscription(string $nom,string $prenom,string $login, string $password, string $password2):void{  
+function inscription(string $nom,string $prenom,string $login, string $password, string $password2, $file_name, string $file_size, string $file_tmp, string $file_type, string $file_ext):void{  
     $errors=[];
     $array=[];
-    
+    $extensions= array("jpeg","jpg","png");
     champ_obligatoire("nom", $nom, $errors,"champs obligatoire");  
     champ_obligatoire("prenom", $prenom, $errors,"champs obligatoire");
     champ_obligatoire("login", $login, $errors,"champs obligatoire");
@@ -102,8 +116,19 @@ function inscription(string $nom,string $prenom,string $login, string $password,
     if($password!=$password2){$errors['password2']="password non identique";}
     if(!CheckPassword($password)) {$errors['password']="password invalid"; }
     if(est_existe($login)){$errors['inscription']="l'utilisateur existe deja";}
-    
+   
+    if(isset($_FILES['file'])){
+        if(in_array($file_ext,$extensions)=== false || $file_size > 2097152){
+            $errors['fichier']="Extension doit etre: jpeg, jpg ou png et la taille du fichier ne doit pas depasser 2MB";
+         }
+        //  if($file_size > 2097152){
+        //     $errors['taille']='le fichier ne doit pas depasser 2MB';
+        //  }
+    }
+
+
     if (count($errors)==0) {
+        move_uploaded_file($file_tmp,PATH_UPLOADS.$file_name);
         if(is_connect()){
             $role = "ROLE_ADMIN"; }
         else  $role = "ROLE_JOUEUR"; 
@@ -114,28 +139,44 @@ function inscription(string $nom,string $prenom,string $login, string $password,
            "login"=> $login,
            "password"=> $password,
            "role"=> $role,
-           "score"=> $score
+           "score"=> $score,
+           "avatar"=> $file_name 
         ];
-        
+       
+
         $json = file_get_contents(PATH_DB);
         $js_arr = json_decode($json, true);
         $js_arr['users'][] = $array;
         $arr_js = json_encode($js_arr);
         file_put_contents(PATH_DB, $arr_js);
+
        if(is_connect()){
-        require_once(PATH_VIEW.DIRECTORY_SEPARATOR."users".DIRECTORY_SEPARATOR."accueil.html.php");
-        exit();
+            ob_start();
+            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
+            //recupere le contenu de cette vue
+            $content_for_view=ob_get_clean();
+            require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
+            exit();
        }
-        else {require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");
+        else {require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
         exit();}
         
 
     }
     else {
+        
         $_SESSION[KEY_ERRORS] = $errors;
-        header("location:".WEB_ROOT."?controller=securite&action=inscription");
-        #mettre un exit() pour arreter la redirection 
-        exit();
+        if(is_connect()){
+            ob_start();
+            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
+            //recupere le contenu de cette vue
+            $content_for_view=ob_get_clean();
+            require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
+            exit();
+        }
+        else 
+            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
+            exit();
     }
 }
 

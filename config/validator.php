@@ -47,10 +47,10 @@ function CheckPassword(string $password)
   
 } 
 
-function put_content_to_json(array $data, string $key){
-    $array = $data;
-    $js_arr = json_to_array("users");
-    array_push($js_arr, $array);
-    $arr_js = json_encode($js_arr);
-    return $arr_js;
-}
+// function put_content_to_json(array $data, string $key){
+//     $array = $data;
+//     $js_arr = json_to_array("users");
+//     array_push($js_arr, $array);
+//     $arr_js = json_encode($js_arr);
+//     return $arr_js;
+// }

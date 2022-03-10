@@ -16,7 +16,7 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
     <title>Login</title>
     <style>
         .active{
-            border-left: 2px solid #39ddd6;color:#39ddd6;padding-left: 2px ;
+            border-left: 2.5px solid #39ddd6; color:#39ddd6; padding-left: 2px ;
         }
     </style>
 </head>
@@ -42,7 +42,7 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
                 <div class="corpsnav-acc">  
                     <ul>
                         <li class="li">
-                            <span> <a class="a <?= $btn=='lq' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=liste&btn=lq"?>">Liste des Questions</a></span>
+                            <span> <a class="a <?= $btn=='lq' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=cree_question&btn=lq"?>">Liste Questions</a></span>
                             <img src="img/ic-liste.png" alt="">
                         </li>
                         <?php if(is_super_admin()){  ?>
@@ -52,11 +52,11 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
                             </li>
                             <?php } ?>    
                         <li class="li">
-                        <span><a class="a <?= $btn=='j' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=liste&btn=j"?>" >Liste des joueurs</a></span>
+                        <span><a class="a <?= $btn=='j' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=liste&btn=j"?>" >Liste joueurs</a></span>
                             <img src="img/ic-liste.png" alt="">
                         </li>
                         <li class="li">
-                        <span><a href="<?=WEB_ROOT."?controller=user&action=liste&btn=cq"?>" class="a <?= $btn=='cq' ? 'active': '' ?>">Créer Questions</a></span>
+                        <span><a href="<?=WEB_ROOT."?controller=user&action=cree_question&btn=cq"?>" class="a <?= $btn=='cq' ? 'active': '' ?>">Créer Questions</a></span>
                             <img src="img/ic-ajout.png" alt="">
                         </li>
                        
@@ -67,7 +67,7 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
                 <?php echo  $content_for_view; ?>
             </div>            
         </div>
-       <div class="suivant-acc"> <input type="submit" value="suivant"></div>
+       <!-- <div class="suivant-acc"> <input type="submit" value="suivant"></div> -->
    </div>
    <?php } ?>
    </body>

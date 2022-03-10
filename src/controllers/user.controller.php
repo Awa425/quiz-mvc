@@ -10,13 +10,17 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             exit();
          }
             if ($_REQUEST['action']=="accueil") { 
-            require_once(PATH_VIEW."users/accueil.html.php");
+            require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
         } 
         if ($_REQUEST['action']=="liste") {    
             lister_joueur();
         }
         if ($_REQUEST['action']=="inscription") {
             creer();
+        }
+        if ($_REQUEST['action']=="cree_question") {
+            creer_quest();
+            // require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
         }
     }
     else {header('location:'.WEB_ROOT); exit();}
@@ -28,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             require_once(PATH_VIEW."securite/register.html.php");
         }
         elseif ($_REQUEST['action']=="inscription") {  
-            die('ok');
+            
         }
     }
 }
@@ -53,9 +57,15 @@ function creer() {
     //recupere le contenu de cette vue
     $content_for_view=ob_get_clean();
     require_once(PATH_VIEW."users/accueil.html.php");
-
-
     }
+    function creer_quest() {
+        //Appel du model
+        ob_start();
+        require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
+        //recupere le contenu de cette vue
+        $content_for_view=ob_get_clean();
+        require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
+        }
 
 
     
