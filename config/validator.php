@@ -14,6 +14,26 @@ function valid_email(string $key,string $data,array &$errors,string $message="em
     }
 }
 
+// function valideMail(string $email) { //Tester si l'email est valide :  javascript : valid email
+//     $mail =' /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
+
+//     if (preg_match($mail, $email)) {
+//         return true;
+//     } 
+// }
+
+function checkEmail(string $email) { //Tester si l'email est valide :  javascript : valid email
+    $mail ='/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/';
+
+    if (preg_match($mail, $email)) {
+        return true;
+    } 
+}
+
+
+
+
+
 //test si le password est valide 
 function valid_password(string $key,string $data,array &$errors,string $message="password
     invalid"){
@@ -47,10 +67,4 @@ function CheckPassword(string $password)
   
 } 
 
-// function put_content_to_json(array $data, string $key){
-//     $array = $data;
-//     $js_arr = json_to_array("users");
-//     array_push($js_arr, $array);
-//     $arr_js = json_encode($js_arr);
-//     return $arr_js;
-// }
+

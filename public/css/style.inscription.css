@@ -173,16 +173,28 @@ h5 {
 .avatar {
     display: flex;
     width: 18vw;
-    height: 26vh;
-    align-items: center;
+    height: 56vh;
     justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
    
 }
+.avatar p{
+    color: red;
+font-size: 0.6em;
+}
 
-.image {
+.avatar .image {
+    width: 100%;
+    height: 40%;
     display: flex;
-    width: 90%;
-    height: 90%;
-    /* border: 2px solid #39ddd6; */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #51bfd0;
     border-radius: 50%;
+}
+.avatar img{
+    width: 100%;
+height: 100%;
+border-radius: 50%;
 }

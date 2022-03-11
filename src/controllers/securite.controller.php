@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
                 
                 
+                
             inscription($nom, $prenom, $login, $password, $password2, $file_name, $file_size, $file_tmp, $file_type, $file_ext);
         }  
         else {
@@ -115,15 +116,13 @@ function inscription(string $nom,string $prenom,string $login, string $password,
 
     if($password!=$password2){$errors['password2']="password non identique";}
     if(!CheckPassword($password)) {$errors['password']="password invalid"; }
+    if(!checkEmail($login)){$errors['login']="login invalid";}
     if(est_existe($login)){$errors['inscription']="l'utilisateur existe deja";}
    
     if(isset($_FILES['file'])){
         if(in_array($file_ext,$extensions)=== false || $file_size > 2097152){
-            $errors['fichier']="Extension doit etre: jpeg, jpg ou png et la taille du fichier ne doit pas depasser 2MB";
+            $errors['fichier']="Extension: jpeg, jpg ou png et la taille du fichier ne doit pas depasser 2MB";
          }
-        //  if($file_size > 2097152){
-        //     $errors['taille']='le fichier ne doit pas depasser 2MB';
-        //  }
     }
 
 
@@ -143,12 +142,7 @@ function inscription(string $nom,string $prenom,string $login, string $password,
            "avatar"=> $file_name 
         ];
        
-
-        $json = file_get_contents(PATH_DB);
-        $js_arr = json_decode($json, true);
-        $js_arr['users'][] = $array;
-        $arr_js = json_encode($js_arr);
-        file_put_contents(PATH_DB, $arr_js);
+        array_to_json("users",$array);
 
        if(is_connect()){
             ob_start();
@@ -164,8 +158,8 @@ function inscription(string $nom,string $prenom,string $login, string $password,
 
     }
     else {
-        
         $_SESSION[KEY_ERRORS] = $errors;
+
         if(is_connect()){
             ob_start();
             require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
@@ -175,7 +169,7 @@ function inscription(string $nom,string $prenom,string $login, string $password,
             exit();
         }
         else 
-            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
+            require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
             exit();
     }
 }

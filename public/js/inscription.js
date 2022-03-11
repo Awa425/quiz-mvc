@@ -5,7 +5,8 @@ const ins_email = document.getElementById('ins_email');
 const ins_password = document.getElementById('ins_password');
 const ins_password2 = document.getElementById('ins_password2');
 const ins_submit = document.getElementById('ins_submit');
-console.log(ins_prenom);
+const tof = document.getElementById('tof');
+console.log(tof)
 
 //////////////Fonctions///////////////
 function checkEmail(input) { //Tester si l'email est valide 
@@ -32,6 +33,11 @@ function checkLength(input, min) {
     if (input.value === "" || input.value.length < min) {
        return true
     } 
+}
+
+// upload photo
+function uploadPhoto(photo) {
+    tof.src = window.URL.createObjectURL(photo.files[0]);
 }
 
 

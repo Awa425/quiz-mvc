@@ -16,7 +16,9 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
     <title>Login</title>
     <style>
         .active{
-            border-left: 2.5px solid #39ddd6; color:#39ddd6; padding-left: 2px ;
+            border-left: 2.9px solid #39ddd6; 
+            color:#39ddd6; 
+            padding-left: 2px ;
         }
     </style>
 </head>

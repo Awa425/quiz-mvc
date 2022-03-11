@@ -10,7 +10,7 @@
 <body>
 
     <div class="main-liste">
-        <table class="table-liste">
+        <table class="table-liste" id="table_liste">
             <thead>
             <tr>
                 <th>Nom</th>
@@ -19,7 +19,7 @@
                 
             </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody"> 
                 <?php foreach ($data as $value) {?>
                     <tr> 
                         <td><?=$value['nom'];?></td>
@@ -31,7 +31,12 @@
            
             <tbody>
         </table>
+        <div class="pagineListe">
+        <button>Precedent</button>
+        <button>Suivant</button>
+    </div> 
     </div>
-     
+    
 </body>
+<script src="<?=WEB_ROOT."js".DIRECTORY_SEPARATOR."listeJoueur.js"?>"></script>
 </html>

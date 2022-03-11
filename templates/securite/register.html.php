@@ -55,18 +55,13 @@ if(isset($_SESSION[KEY_ERRORS])){
                 </div>
                 <div class="element">
                     <small>Avatar</small>
-                    <input type="file" id="avatar" name="file">Choisir un fichier</input>
+                    <input type="file" id="avatar" name="file" onchange="uploadPhoto(this)"></input>
                 </div>
                 <input type="submit" class="button" id="ins_submit" name="inscription" value="inscription" disabled>
             </form>
             <div class="avatar"> 
                     <label for="avatar" class="image">
-                       <?php  if(isset($_SESSION[KEY_USER_CONNECT]['avatar'])){ ?>
-                            <img src="<?=PATH_UPLOADS. $_SESSION[KEY_USER_CONNECT]['avatar'];?>" alt=""> 
-                      <?php } 
-                      else {?>
-                        <img src="<?=WEB_ROOT."img".DIRECTORY_SEPARATOR."v3_0591291.jpg"?>" alt="">
-                      <?php }?>
+                        <img src="" alt="" id="tof">
                     </label>  
                       <?php if(isset($errors['fichier'])){?>
                             <p><?= $errors['fichier'];?></p>
