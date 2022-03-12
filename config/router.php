@@ -8,7 +8,10 @@ if (isset($_REQUEST['controller'])) {
            break;
         case 'user':
            require_once(PATH_SRC.DIRECTORY_SEPARATOR."controllers".DIRECTORY_SEPARATOR."user.controller.php");
-           break;   
+           break;  
+           case 'question':
+            require_once(PATH_SRC.DIRECTORY_SEPARATOR."controllers".DIRECTORY_SEPARATOR."question.controller.php");
+            break;   
        
          default:
          require_once(PATH_VIEW.DIRECTORY_SEPARATOR."securite".DIRECTORY_SEPARATOR."login.html.php");

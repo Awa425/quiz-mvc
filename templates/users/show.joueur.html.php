@@ -32,8 +32,8 @@
             <tbody>
         </table>
         <div class="pagineListe">
-        <button>Precedent</button>
-        <button>Suivant</button>
+        <button onclick="lastPage()">Precedent</button>
+        <button onclick="nextPage()">Suivant</button>
     </div> 
     </div>
     

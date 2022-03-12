@@ -1,3 +1,13 @@
+<?php 
+    if(isset($_SESSION['erreur'])){
+        $errors[] = $_SESSION[KEY_ERRORS]; 
+    }
+
+    function vers(string $ctr, string $action){
+        echo "<input type='hidden' name='controller' value='$ctr'>
+            <input type='hidden' name='action' value='$action'>";
+     }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,29 +24,30 @@
 <h3 class="grand">PARAMÉTRER VOTRE QUESTION</h3>
 <div class="petit-quest">
    <form action="<?= WEB_ROOT ?>" method="POST">
-   <input type="hidden" name="controller" value="user">
-   <input type="hidden" name="action" value="creer.question">
-
+     <?php vers("question", "enregistrerQuest"); ?>
    <div class="champ1-quest">
         <label for="">Questions</label>
-        <input id="uno-quest"type="text" name="question">
+        <textarea name="quest" id="uno-quest" cols="30" rows="2"></textarea>
+        <!-- <input id="uno-quest"type="text" name="quest"> -->
+        <?php if(isset($errors['quest'])){ ?> <p><?= $errors['quest']; ?></p> <?php } ?>
     </div>
 
     <div class="champ2-quest">
         <label for="">Nbre de points</label>
         <input id="dos-quest"type="number" name="point">
+        <?php if(isset($errors['point'])){ ?> <p><?= $errors['point']; ?></p> <?php } ?>
     </div>
 
     <div class="champ3-quest">
 
         <label for="">Type de réponse</label> 
-        <select name="repChoice-quest" id="repChoice_quest" onchange="genereChampsRepMulti()">
+        <select name="repChoice_quest" id="repChoice_quest" onchange="choix()">
             <option disabled selected>Donnez le type de réponse</option>
             <option value="repMultiple">Reponse Multiple</option>
             <option value="repSimple">Réponse Simple</option>
             <option value="repText">Réponse Texte</option>
         </select>
-        <button type="button" id="btnChoice" class="btnChoice" onclick=duplique()>+</button>
+        <button type="button" id="btnChoice" class="btnChoice" >+</button>
         <input type="hidden" name="nbrReponse" id="nbrReponse">   
     </div>
 
@@ -50,7 +61,7 @@
         </div> -->
     </div>
     <!-- <input type="submit" name="enregistrer"> -->
-    <button class="enregistrer" type="submit" name="enregistrer" >Enregistrer</button>
+    <button class="enregistrer" type="submit" name="enregistrerQquest" id="btnEnregistre">Enregistrer</button>
    </form>
 
 

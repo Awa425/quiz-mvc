@@ -57,7 +57,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 $file_tmp =$_FILES['file']['tmp_name'];
                 $file_type=$_FILES['file']['type'];
                 $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
-                
+                $login_debut=strtolower(current(explode('@',$login)));
+                $rename= str_replace(strtolower(current(explode('.',$_FILES['file']['name']))), $login_debut, $file_name);
+
+                // var_dump($rename); die;
                 
                 
             inscription($nom, $prenom, $login, $password, $password2, $file_name, $file_size, $file_tmp, $file_type, $file_ext);
@@ -83,7 +86,7 @@ function connexion(string $login, string $password):void{
         $user = find_user_login_password($login, $password);
         //user existe
         if (count($user)!=0) { 
-            var_dump($user); 
+            // var_dump($user); 
             $_SESSION[KEY_USER_CONNECT]=$user;
             header('location:'.WEB_ROOT."?controller=user&action=accueil");
             exit();
@@ -144,7 +147,8 @@ function inscription(string $nom,string $prenom,string $login, string $password,
        
         array_to_json("users",$array);
 
-       if(is_connect()){
+       
+       if(is_connect()){ 
             ob_start();
             require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
             //recupere le contenu de cette vue
@@ -159,7 +163,8 @@ function inscription(string $nom,string $prenom,string $login, string $password,
     }
     else {
         $_SESSION[KEY_ERRORS] = $errors;
-
+        $_SESSION['users']= $_POST;
+        $_SESSION['file'] = $_FILES['file'];
         if(is_connect()){
             ob_start();
             require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");

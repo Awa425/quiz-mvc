@@ -48,11 +48,11 @@ section {
 
 .question-quest {
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .petit-quest {
@@ -63,13 +63,23 @@ section {
     display: flex;
     flex-direction: column;
 }
+.petit-quest form{
+    height: 100%;
+}
 
 .champ1-quest {
     display: flex;
-    height: 30%;
+    height: 13%;
     margin: 1%;
 }
-
+.champ1-quest label{
+    display: flex;
+align-items: center;
+}
+.champ1-quest p{
+    color: red;
+    font-size: 0.5em;
+}
 #repChoice-quest {
     height: 50%;
     border: #39ddd6 2px solid;
@@ -77,8 +87,8 @@ section {
 }
 
 #uno-quest {
-    width: 70%;
-    height: 100%;
+    width: 100%;
+    /* height: 100%; */
     border: #39ddd6 2px solid;
     font-size: large;
 }
@@ -87,7 +97,10 @@ section {
     height: 20%;
     margin: 1%;
 }
-
+.champ2-quest p{
+    color: red;
+    font-size: 0.5em;
+}
 #dos-quest {
     width: 15%;
     height: 50%;
@@ -108,16 +121,18 @@ section {
 }
 
 .champ4-quest {
-   
+    height: 35%;
     margin: 1%;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 .cham_quest{
     margin: 0.7%;
+    display: flex;
+    justify-content: space-evenly;
 }
 #quatro {
     width: 55%;
@@ -146,7 +161,7 @@ section {
     font-size: large;
     color: white;
     margin-left: 70%;
-    margin-bottom: 12%;
+    /* margin-bottom: 12%; */
 }
 
 select {

@@ -24,7 +24,6 @@ function valid_email(string $key,string $data,array &$errors,string $message="em
 
 function checkEmail(string $email) { //Tester si l'email est valide :  javascript : valid email
     $mail ='/^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/';
-
     if (preg_match($mail, $email)) {
         return true;
     } 

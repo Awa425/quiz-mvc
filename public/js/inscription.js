@@ -10,8 +10,8 @@ console.log(tof)
 
 //////////////Fonctions///////////////
 function checkEmail(input) { //Tester si l'email est valide 
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+    // const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[a-z0-9](\.?[a-z0-9]){4,}@g(oogle)?mail\.com$/;
     if (re.test(input.value.trim().toLowerCase())) {
         return true;
     } else {
@@ -22,7 +22,7 @@ function checkEmail(input) { //Tester si l'email est valide
 function CheckPassword(input) 
     { 
      paswd = /^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!@#$%^&*]{6,50}$/;
-    if(paswd.test(input.value))
+     if(paswd.test(input.value))
     { 
         return true;
     }

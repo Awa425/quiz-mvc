@@ -7,7 +7,8 @@ height: 100vh;
 align-items: center;
 flex-direction: column;
 margin: 0;
-height: 100vh;
+height: 120vh;
+min-height: 100vh;
 }
 .container-acc{
     display: flex;
@@ -26,6 +27,8 @@ display: flex;
 /* margin-top: -13%; */
 background-color: #000000ed;
 color: white;
+height: 8%;
+min-height: 8%;
 }
 .header-acc i{
     display: flex;
@@ -99,7 +102,7 @@ h2{
 }
 .navbar-acc{
     box-shadow: 1px 1px 1px 1px rgba(8, 4, 8, 0.2);
-    height: 84%;
+    height: 55%;
     margin-top: 2%;
     display: flex;
 flex-direction: column;
@@ -139,13 +142,14 @@ border-radius: 50%;
 .bloc-info-acc{
 
     width: 69%;
-    height: 97%;
+    /* height: 97%; */
+    height: 87%;
     margin-top: 1%;
     border: 1.6px solid #39ddd6;
     border-radius: 8px;
     display: flex;
 justify-content: center;
-align-items: center;
+/* align-items: center; */
 }
 
 .suivant-acc{

@@ -3,7 +3,16 @@
 if(isset($_SESSION[KEY_ERRORS])){
     $errors = $_SESSION[KEY_ERRORS];  
     unset($_SESSION[KEY_ERRORS]);
+
 }    
+    // if(isset($_SESSION['users'])){
+    //     $users = $_SESSION['users'];
+    //     $file = $_SESSION['file'];
+    //     unset($_SESSION['users']);
+    //     unset($_SESSION['file']);
+    //     // var_dump($users); die;
+    // }
+    
 //  if(isset($_SESSION[KEY_USER_CONNECT])){var_dump($_SESSION[KEY_USER_CONNECT]['avatar']); die;}
     function vers(string $ctr, string $action){
         echo "<input type='hidden' name='controller' value='$ctr'>
@@ -24,7 +33,7 @@ if(isset($_SESSION[KEY_ERRORS])){
                         <p style="color: red"> <?= $errors['inscription']; ?> </p> <?php } ?> 
                 <div class="form-control">
                     <!-- <label for="username">Prenom</label> -->
-                    <input id="ins_prenom" name="prenom" type="text" placeholder="Entrer votre prenom">
+                    <input id="ins_prenom" name="prenom" type="text"  placeholder="Entrer votre prenom">
                     <small><?php if(isset($errors['prenom'])){ ?>
                         <p style="color: red"> <?= $errors['prenom']; ?> </p> <?php } ?>  
                     </small>
@@ -55,6 +64,7 @@ if(isset($_SESSION[KEY_ERRORS])){
                 </div>
                 <div class="element">
                     <small>Avatar</small>
+                    <?php if(isset($_FILES['file'])){}?>
                     <input type="file" id="avatar" name="file" onchange="uploadPhoto(this)"></input>
                 </div>
                 <input type="submit" class="button" id="ins_submit" name="inscription" value="inscription" disabled>
