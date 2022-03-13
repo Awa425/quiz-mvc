@@ -44,7 +44,7 @@ $btn = isset($_GET['btn']) ? $_GET['btn']: '';
                 <div class="corpsnav-acc">  
                     <ul>
                         <li class="li">
-                            <span> <a class="a <?= $btn=='lq' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=cree_question&btn=lq"?>">Liste Questions</a></span>
+                            <span> <a class="a <?= $btn=='lq' ? 'active': '' ?>" href="<?=WEB_ROOT."?controller=user&action=listerQuestion&btn=lq"?>">Liste Questions</a></span>
                             <img src="img/ic-liste.png" alt="">
                         </li>
                         <?php if(is_super_admin()){  ?>

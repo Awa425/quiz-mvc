@@ -1,0 +1,25 @@
+.container_liste_question{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+height: 100%;
+}
+.entete_liste_quest{
+    display: flex;
+   justify-content: space-evenly;
+   margin-top: 2%;
+}
+.entete_liste_quest label{
+    color: gray;
+}
+.entete_liste_quest #point{
+    width: 3vw;
+    
+}
+#liteQuestion{
+    border: 1px solid grey;
+    width: 96%;
+    height: 80%;
+    border-radius: 23px;
+    margin: 2%;
+}

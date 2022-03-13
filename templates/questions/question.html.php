@@ -1,6 +1,7 @@
 <?php 
     if(isset($_SESSION['erreur'])){
-        $errors[] = $_SESSION[KEY_ERRORS]; 
+        $errors[] = $_SESSION['erreur'];  
+        // var_dump($errors); die;
     }
 
     function vers(string $ctr, string $action){
@@ -34,7 +35,9 @@
 
     <div class="champ2-quest">
         <label for="">Nbre de points</label>
-        <input id="dos-quest"type="number" name="point">
+        <input type="submit" value="-" id="decremente">
+        <input id="pointQuest"type="text" name="point">
+        <input type="submit" value="+" id="incremente">
         <?php if(isset($errors['point'])){ ?> <p><?= $errors['point']; ?></p> <?php } ?>
     </div>
 
@@ -42,7 +45,7 @@
 
         <label for="">Type de réponse</label> 
         <select name="repChoice_quest" id="repChoice_quest" onchange="choix()">
-            <option disabled selected>Donnez le type de réponse</option>
+            <option value="" disabled selected>Donnez le type de réponse</option>
             <option value="repMultiple">Reponse Multiple</option>
             <option value="repSimple">Réponse Simple</option>
             <option value="repText">Réponse Texte</option>

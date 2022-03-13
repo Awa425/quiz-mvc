@@ -58,12 +58,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 $file_type=$_FILES['file']['type'];
                 $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
                 $login_debut=strtolower(current(explode('@',$login)));
-                $rename= str_replace(strtolower(current(explode('.',$_FILES['file']['name']))), $login_debut, $file_name);
+                $rename = str_replace(strtolower(current(explode('.',$_FILES['file']['name']))), $login_debut, $file_name);
 
                 // var_dump($rename); die;
                 
                 
-            inscription($nom, $prenom, $login, $password, $password2, $file_name, $file_size, $file_tmp, $file_type, $file_ext);
+            inscription($nom, $prenom, $login, $password, $password2, $rename, $file_size, $file_tmp, $file_type, $file_ext);
         }  
         else {
             require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."login.html.php");
@@ -107,7 +107,7 @@ function connexion(string $login, string $password):void{
     }
 }
 
-function inscription(string $nom,string $prenom,string $login, string $password, string $password2, $file_name, string $file_size, string $file_tmp, string $file_type, string $file_ext):void{  
+function inscription(string $nom,string $prenom,string $login, string $password, string $password2, string $file_name, string $file_size, string $file_tmp, string $file_type, string $file_ext):void{  
     $errors=[];
     $array=[];
     $extensions= array("jpeg","jpg","png");

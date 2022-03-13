@@ -20,8 +20,11 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         }
         if ($_REQUEST['action']=="cree_question") {
             creer_quest();
-            // require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
         }
+        if ($_REQUEST['action']=="listerQuestion") {
+            lister_question();
+        }
+        
     }
     else {header('location:'.WEB_ROOT); exit();}
 }
@@ -56,16 +59,26 @@ function creer() {
     require_once(PATH_VIEW."securite".DIRECTORY_SEPARATOR."register.html.php");
     //recupere le contenu de cette vue
     $content_for_view=ob_get_clean();
-    require_once(PATH_VIEW."users/accueil.html.php");
+    require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
     }
-    function creer_quest() {
+
+function creer_quest() {
         //Appel du model
         ob_start();
-        require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
+        require_once(PATH_VIEW."questions".DIRECTORY_SEPARATOR."question.html.php");
         //recupere le contenu de cette vue
         $content_for_view=ob_get_clean();
         require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
-        }
+    }
+
+    function lister_question() {
+        //Appel du model
+        ob_start();
+        require_once(PATH_VIEW."questions".DIRECTORY_SEPARATOR."liste.question.html.php");
+        //recupere le contenu de cette vue
+        $content_for_view=ob_get_clean();
+        require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
+    }    
 
 
     

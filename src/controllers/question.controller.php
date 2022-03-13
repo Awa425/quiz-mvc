@@ -7,8 +7,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $question=$_POST['quest'];  
         $point = $_POST['point'];
         $type_reponse =  $_POST['repChoice_quest'];
-        $reponse[] = $_POST['rep'];
-        $check[] = $_POST['check'];   
+        $reponse = $_POST['rep'];
+        $check = $_POST['check'];   
         creeQuestion($question, $point, $type_reponse, $reponse, $check);
     }           
 }
@@ -28,22 +28,22 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                     "Points"=> $point,
                     "Type de Reponse"=> $type_reponse,
                     "Reponse"=> $reponse,
-                    "Checked"=> $check,
+                    "correct"=> $check,
                 ];
                 array_to_json("Questions",$array); 
                 
 
                  ob_start();
-                 require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
+                 require_once(PATH_VIEW."questions".DIRECTORY_SEPARATOR."question.html.php");
                  //recupere le contenu de cette vue
                  $content_for_view=ob_get_clean();
                  require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");
                  exit();
             }
-            else { 
+            else {  
                 $_SESSION['erreur']=$errors;
                 ob_start();
-                 require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."question.html.php");
+                 require_once(PATH_VIEW."questions".DIRECTORY_SEPARATOR."question.html.php");
                  //recupere le contenu de cette vue
                  $content_for_view=ob_get_clean();
                  require_once(PATH_VIEW."users".DIRECTORY_SEPARATOR."accueil.html.php");

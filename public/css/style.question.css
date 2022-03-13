@@ -101,12 +101,16 @@ align-items: center;
     color: red;
     font-size: 0.5em;
 }
-#dos-quest {
+.champ2-quest #pointQuest{
+    width: 10%;
+    border: #39ddd6 2px solid;
+}
+/* #dos-quest {
     width: 15%;
     height: 50%;
     border: #39ddd6 2px solid;
     font-size: large;
-}
+} */
 
 .champ3-quest {
     height: 20%;
@@ -148,6 +152,7 @@ align-items: center;
 
 .grand {
     color: #51bfd0;
+    text-align: center;
 }
 
 .enregistrer {

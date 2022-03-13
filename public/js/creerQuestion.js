@@ -1,9 +1,11 @@
 const repChoice_quest = document.getElementById('repChoice_quest');
+const piont_quest = document.getElementById('piontQuest');
 const champ4_quest = document.getElementById('champ4-quest');
 const repChoice = document.getElementById('repChoice-quest');
 const btnChoice = document.getElementById('btnChoice');
 const btnEnregistre = document.getElementById('btnEnregistre');
-
+const decremente = document.getElementById('decremente');
+const incremente = document.getElementById('incremente');
 
 
 
@@ -37,6 +39,7 @@ function genereChamps() {
    if(repChoice_quest.value == 'repMultiple'){
         label.setAttribute('for', 'idCheckbox_'+i) 
         inputCheack.setAttribute('name', 'check[]');
+        inputCheack.setAttribute('value', +i);
         div.appendChild(label);
         div.appendChild(inputText);
         div.appendChild(inputCheack);
@@ -45,6 +48,7 @@ function genereChamps() {
    else if(repChoice_quest.value == 'repSimple'){
         label.setAttribute('for', 'idRadio_'+i) 
         inputradio.setAttribute('name', 'check[]');
+        inputradio.setAttribute('value', +i);  console.log(inputradio)
         div.appendChild(label);
         div.appendChild(inputText);
         div.appendChild(inputradio);
@@ -62,6 +66,7 @@ function choix(){
     i = 1
     genereChamps();
 }
+
 
 function getSelect() {
     let eltSelect =''
@@ -82,6 +87,14 @@ btnChoice.addEventListener('click', ()=>{
     genereChamps(); 
 
 })
+decremente.addEventListener('click', ()=>{
+    
+})
+incremente.addEventListener('click', ()=>{
+    // console.log(piont_quest.value);
+})
+
+
 // btnEnregistre.addEventListener('click', ()=>{
 //     $(".checkbox").on("change", function() {console.log('fzef');
 //     var values = [];
