@@ -19,6 +19,8 @@ function find_users(string $role):array{
     return
     $result;
     }
+
+    
    
 function est_existe(string $login) {
     $users=json_to_array("users");

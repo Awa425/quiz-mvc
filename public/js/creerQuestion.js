@@ -7,10 +7,7 @@ const btnEnregistre = document.getElementById('btnEnregistre');
 const decremente = document.getElementById('decremente');
 const incremente = document.getElementById('incremente');
 
-
-
 ///////////fonction/////////////
-
 
 let i = 1;
 function genereChamps() { 
@@ -20,7 +17,7 @@ function genereChamps() {
    const inputText = document.createElement('input');    
    const inputradio = document.createElement('input');
    const inputCheack = document.createElement('input');     
-   const button = document.createElement('input');  
+   const button_supp = document.createElement('input');  
    
    div.setAttribute('id', 'div_'+i);
    div.setAttribute('class', 'cham_quest');
@@ -33,8 +30,8 @@ function genereChamps() {
    inputradio.setAttribute('id', 'idRadio_'+i);
    inputCheack.setAttribute('type', 'checkbox');
    inputCheack.setAttribute('id', 'idCheckbox_'+i);
-   button.setAttribute('type', 'submit')
-   button.value = 'x';
+   button_supp.setAttribute('type', 'submit')
+   button_supp.value = 'x';
    
    if(repChoice_quest.value == 'repMultiple'){
         label.setAttribute('for', 'idCheckbox_'+i) 
@@ -43,29 +40,38 @@ function genereChamps() {
         div.appendChild(label);
         div.appendChild(inputText);
         div.appendChild(inputCheack);
-        div.appendChild(button);     
+        div.appendChild(button_supp);     
    }
    else if(repChoice_quest.value == 'repSimple'){
         label.setAttribute('for', 'idRadio_'+i) 
         inputradio.setAttribute('name', 'check[]');
-        inputradio.setAttribute('value', +i);  console.log(inputradio)
+        inputradio.setAttribute('value', +i); 
         div.appendChild(label);
         div.appendChild(inputText);
         div.appendChild(inputradio);
+        div.appendChild(button_supp);     
     }
     else if(repChoice_quest.value == 'repText'){
         div.appendChild(label);
         div.appendChild(inputText);
     }
     champ4_quest.appendChild(div); 
+    
+    button_supp.addEventListener('click', ()=>{
+        div.remove(); 
+        i--;
+    })
     i++;
-}  
 
+   
+}  
+choix();
 function choix(){
     champ4_quest.innerHTML='';
     i = 1
     genereChamps();
 }
+
 
 
 function getSelect() {
@@ -93,6 +99,7 @@ decremente.addEventListener('click', ()=>{
 incremente.addEventListener('click', ()=>{
     // console.log(piont_quest.value);
 })
+
 
 
 // btnEnregistre.addEventListener('click', ()=>{

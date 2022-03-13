@@ -45,8 +45,9 @@
 
         <label for="">Type de réponse</label> 
         <select name="repChoice_quest" id="repChoice_quest" onchange="choix()">
-            <option value="" disabled selected>Donnez le type de réponse</option>
-            <option value="repMultiple">Reponse Multiple</option>
+        <?php if(isset($errors['type_rep'])){ ?> <p><?= $errors['type_rep']; ?></p> <?php } ?>
+            <!-- <option value="" selected>Donnez le type de réponse</option> -->
+            <option value="repMultiple" selected>Reponse Multiple</option>
             <option value="repSimple">Réponse Simple</option>
             <option value="repText">Réponse Texte</option>
         </select>

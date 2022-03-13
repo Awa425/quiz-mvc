@@ -80,11 +80,7 @@ align-items: center;
     color: red;
     font-size: 0.5em;
 }
-#repChoice-quest {
-    height: 50%;
-    border: #39ddd6 2px solid;
-    width: 50%;
-}
+
 
 #uno-quest {
     width: 100%;
@@ -138,17 +134,10 @@ align-items: center;
     display: flex;
     justify-content: space-evenly;
 }
-#quatro {
-    width: 55%;
-    height: 50%;
-    /* border-bottom: #39ddd6 2px solid;
-    border-right: #39ddd6 2px solid;
-    border-left: none;
-    border-top: none;
-    outline: none; */
-    border: #39ddd6 2px solid;
-    font-size: large;
+.cham_quest input{
+    border:2px solid #39ddd6;
 }
+
 
 .grand {
     color: #51bfd0;
@@ -173,6 +162,7 @@ select {
     width: 60%;
     height: 50%;
     background-color: white;
+    border: 2px solid #39ddd6 ;
 }
 
 .btnChoice {
