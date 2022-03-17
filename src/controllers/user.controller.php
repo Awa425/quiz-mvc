@@ -72,7 +72,7 @@ function creer_quest() {
     }
 
     function lister_question() {
-        //Appel du model
+        $questions=json_to_array("Questions"); 
         ob_start();
         require_once(PATH_VIEW."questions".DIRECTORY_SEPARATOR."liste.question.html.php");
         //recupere le contenu de cette vue

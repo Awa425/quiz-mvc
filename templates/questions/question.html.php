@@ -35,9 +35,9 @@
 
     <div class="champ2-quest">
         <label for="">Nbre de points</label>
-        <input type="submit" value="-" id="decremente">
-        <input id="pointQuest"type="text" name="point">
-        <input type="submit" value="+" id="incremente">
+        <input type="button" value="-" id="decremente">
+        <input id="pointQuest"type="text" name="point" value="1">
+        <input type="button" value="+" id="incremente">
         <?php if(isset($errors['point'])){ ?> <p><?= $errors['point']; ?></p> <?php } ?>
     </div>
 
